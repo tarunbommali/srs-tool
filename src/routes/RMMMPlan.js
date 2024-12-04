@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ButtonNavigation } from '../components/ButtonNavigation';
 
 const RMMMPlan = () => {
   // States for risk details and the results
@@ -44,7 +45,7 @@ const RMMMPlan = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <header className="bg-blue-600 text-white py-4 mb-6">
+      <header className="text-[#162458] py-4 mb-6">
         <h1 className="text-center text-2xl font-bold">Risk Mitigation, Monitoring, and Management (RMMM) Plan</h1>
       </header>
       <div className="container mx-auto bg-white p-6 rounded-lg shadow-lg">
@@ -157,6 +158,9 @@ const RMMMPlan = () => {
           </table>
         </div>
       </div>
+
+      <ButtonNavigation nextPath="/page2" stepIndex={1} />
+
     </div>
   );
 };

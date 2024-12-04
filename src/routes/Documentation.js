@@ -1,9 +1,10 @@
 import React from 'react';
+import { ButtonNavigation } from '../components/ButtonNavigation';
 
 const Documentation = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <header className="bg-blue-600 text-white py-4 mb-6">
+      <header className="text-[#162458] py-4 mb-6">
         <h1 className="text-center text-3xl font-bold">Software Requirements Specification (SRS)</h1>
         <p className='text-center italic font-sans'>IEEE 830 or ISO/IEC standards for SRS documentation</p>
       </header>
@@ -77,6 +78,9 @@ const Documentation = () => {
           <p><strong>8.2 Glossary:</strong> Define terms, acronyms, and abbreviations used in the document.</p>
         </section>
       </div>
+
+      <ButtonNavigation nextPath="/page2" stepIndex={1} />
+
     </div>
   );
 };

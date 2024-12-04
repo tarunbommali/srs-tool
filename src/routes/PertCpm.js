@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend, PointElement } from 'chart.js';
+import { ButtonNavigation } from '../components/ButtonNavigation';
 
 // Register necessary chart components
 ChartJS.register(CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend, PointElement);
@@ -86,7 +87,7 @@ const PertCpm = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <header className="bg-blue-600 text-white py-4 mb-6">
+      <header className="text-[#162458] py-4 mb-6">
         <h1 className="text-center text-2xl font-bold">PERT/CPM Timeline Chart</h1>
       </header>
       
@@ -145,6 +146,9 @@ const PertCpm = () => {
         {/* Render chart */}
         <Line data={chartData} options={chartOptions} />
       </div>
+
+      <ButtonNavigation nextPath="/page2" stepIndex={1} />
+
     </div>
   );
 };

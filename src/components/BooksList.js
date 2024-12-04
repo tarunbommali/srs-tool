@@ -1,67 +1,57 @@
-import React from 'react';
+import React from "react";
+import { TEXT_BOOKS, REFRENCE_BOOKS } from "../utils/constants";
+import { MdFileDownloadDone } from "react-icons/md";
 
 const BooksList = () => {
-  const textbooks = [
-    {
-      title: 'A Concise Introduction to Software Engineering',
-      author: 'Pankaj Jalote',
-      publisher: 'Springer International Edition',
-    },
-    {
-      title: 'Software Engineering, A Precise Approach',
-      author: 'Pankaj Jalote',
-      publisher: 'Wiley, 2010',
-    },
-    {
-      title: 'Software Engineering, 3/e, & 7/e',
-      author: 'Roger S. Pressman',
-      publisher: 'TMH',
-    },
-    {
-      title: 'Fundamentals of Software Engineering',
-      author: 'Rajib Mall',
-      publisher: 'PHI, 2/e',
-    },
-  ];
-
-  const referenceBooks = [
-    {
-      title: 'Software Engineering, 8/e',
-      author: 'Sommerville',
-      publisher: 'Pearson',
-    },
-    {
-      title: 'Software Engineering Principles and Practice',
-      author: 'W S Jawadekar',
-      publisher: 'TMH, 7/e',
-    },
-    {
-      title: 'Software Engineering Concepts',
-      author: 'R Fairley',
-      publisher: 'TMH, 1997',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-     
       <div className="container mx-auto bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-xl font-bold mb-4">Textbooks</h2>
-        <ul className="list-disc pl-6 mb-6">
-          {textbooks.map((book, index) => (
-            <li key={index}>
-              <strong>{book.title}</strong>, by {book.author} ({book.publisher})
+        <h2 className="text-xl font-bold text-[#162458] mb-4 underline">
+          Textbooks
+        </h2>
+        <ul className="flex flex-wrap list-disc mb-4">
+          {TEXT_BOOKS.map((book, index) => (
+            <li
+              key={index}
+              className="flex flex-col  justify-center items-center w-[300px] mx-2 my-1 p-2 b-[#d5dbdb] border rounded-sm bg-slate-50"
+            >
+              <img className="w-[200px] h-[200px]" src={book.img_url} alt={book.title} />
+              <p className="text-center">{book.title}</p>
+              
+              <button type="button" className="flex items-center text-center justify-center bg-[#162458] text-white rounded-md my-2 py-2 w-full"><MdFileDownloadDone className="mx-2"/>Download</button>
             </li>
           ))}
         </ul>
-
-        <h2 className="text-xl font-bold mb-4">Reference Books</h2>
-        <ul className="list-disc pl-6">
-          {referenceBooks.map((book, index) => (
-            <li key={index}>
-              <strong>{book.title}</strong>, by {book.author} ({book.publisher})
+        <br />
+        <h2 className="text-xl font-bold mb-4  text-[#162458] underline">
+          Reference Books
+        </h2>
+        <ul className="flex flex-wrap list-disc ">
+          {REFRENCE_BOOKS.map((book, index) => (
+            <li
+              key={index}
+              className="flex flex-col justify-center items-center flex-wrap w-[300px] mx-2 my-1 p-2 b-[#d5dbdb] border rounded-sm bg-slate-50"
+            >
+              <img className="w-[200px] h-[200px]" src={book.img_url} alt={book.title} />
+              <p className="text-center">{book.title} </p>
+              <button type="button" className="flex  items-center text-center justify-center bg-[#162458] text-white rounded-md my-2 py-2 w-full"><MdFileDownloadDone className="mx-2"/>Download</button>
             </li>
           ))}
+        </ul>
+        <br />
+
+        <h2 className="text-xl font-bold mb-4 text-[#162458] underline">
+          CO's
+        </h2>
+        <ul className="list-disc">
+          <li className=" mx-2 p-2">
+            <strong>CO1:</strong> Understand SRS documents, test cases, software
+            configuration management, and risk management documents.
+          </li>
+          <li className=" mx-2 p-2">
+            <strong>CO2:</strong> Learn methods for capturing, specifying,
+            visualizing, and analyzing software requirements.
+          </li>
         </ul>
       </div>
     </div>

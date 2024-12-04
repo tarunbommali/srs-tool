@@ -1,15 +1,17 @@
 import BudgetEstimation from "../components/BugetEstimation";
-
+import { ButtonNavigation } from "../components/ButtonNavigation";
+import { FUNCTIONAL_REQUIREMENT_IMG_URL } from "../utils/constants";
 const RequirementAnalysis = () => {
   return (
     <div className="p-8 bg-gray-100 min-h-screen">
-        <header className="bg-blue-600 text-white py-4 mb-6">
+        <header className=" text-[#162458] py-4 mb-6">
         <h1 className="text-center text-3xl font-bold">  Requirement Analysis</h1>
         <p className='text-center italic font-sans'> Understanding requirements through case studies and tools.</p>
       </header>
    
       {/* Functional Requirement */}
       <section className="bg-white p-6 rounded-lg shadow-md mb-6">
+        <img src={FUNCTIONAL_REQUIREMENT_IMG_URL} alt="functional-requirement" />
         <h2 className="text-2xl font-bold mb-4">Functional Requirements</h2>
         <p>
           To effectively analyze requirements, consider the context and goals of
@@ -48,6 +50,9 @@ const RequirementAnalysis = () => {
       <section className="bg-white p-6 rounded-lg shadow-md mb-6">
         <BudgetEstimation />
       </section>
+
+      <ButtonNavigation nextPath="/page2" stepIndex={1} />
+
     </div>
   );
 };

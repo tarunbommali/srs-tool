@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ButtonNavigation } from '../components/ButtonNavigation';
 
 const CocomoModel = () => {
   // Default Constants for COCOMO Model
@@ -24,7 +25,7 @@ const CocomoModel = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <header className="bg-blue-600 text-white py-4 mb-6">
+      <header className="text-[#162458] py-4 mb-6">
         <h1 className="text-center text-2xl font-bold">COCOMO Model Calculator</h1>
       </header>
 
@@ -102,6 +103,9 @@ const CocomoModel = () => {
           </h2>
         </div>
       </div>
+
+      <ButtonNavigation nextPath="/page2" stepIndex={1} />
+
     </div>
   );
 };

@@ -10,15 +10,23 @@ import RequirementAnalysis from "./routes/RequirementAnalysis";
 import RMMMPlan from "./routes/RMMMPlan";
 import TestCases from "./routes/TestCases";
 import Home from "./routes/Home";
+import { Provider } from "react-redux";
+import { appStore } from "./redux/appStore";
+import Footer from "./components/Footer";
 
 const AppLayout = () => {
   return (
-    <div className="m-5">
-      <Header />
-      <div className="min-h-[80vh]">
-        <Outlet />
+    <Provider store={appStore}>
+    <div className="m-0">
+      <div className="m-2">
+        <Header />
+        <div className="min-h-[80vh] pt-[80px]"> 
+          <Outlet />
+        </div>
       </div>
+      <Footer />
     </div>
+  </Provider>
   );
 };
 

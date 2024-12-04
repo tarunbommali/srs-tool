@@ -1,68 +1,47 @@
 import React from "react";
 import { RiProgress8Line } from "react-icons/ri";
+import { NavLink } from "react-router-dom"; // Import NavLink
+import { useSelector } from "react-redux";
 
-import { Link } from "react-router-dom";
+import { LOGO_URL, NAV_ITEMS } from "../utils/constants";
 
 export const Header = () => {
+  const steps = useSelector((store) => store.progress.steps); // Corrected key
+
   return (
-    <div>
+    <div className="fixed top-0 left-0 w-full bg-white z-10 pt-2">
       <ul className="flex items-center justify-between">
         <li>
-          <h1 className="text-2xl">
-            Software Requirements Specification (SRS)
-          </h1>
+          <img
+            src={LOGO_URL}
+            alt="logo"
+            className="rounded-md h-[40px] w-[70px]"
+          />
         </li>
-        <li className="flex justify-center mx-4  text-2xl items-center"><RiProgress8Line className="mx-2"/><span>0 / 8</span></li>
+        <li className="flex justify-center mx-4 bg-[#162458] rounded-lg text-white px-4 py-2 text-xl items-center">
+          <RiProgress8Line className="mx-2" />
+          <span>{steps} / 8</span>
+        </li>
       </ul>
-
-      <div className="w-full overflow-x-auto my-4 scrollbar">
-        <ul className="flex whitespace-nowrap">
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/" className="hover:underline">
-              Home
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/requirement-analysis" className="hover:underline">
-              Requirement Analysis
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/documentation" className="hover:underline">
-              Documentation
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/cocomo-model" className="hover:underline">
-              COCOMO Model
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/functional-point-estimation" className="hover:underline">
-              Functional Point Estimation
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/rmmm-plan" className="hover:underline">
-              RMMM Plan
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/timeline-chart" className="hover:underline">
-              Time Line Chart - PERT / CPM
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/er-dfd-cfd" className="hover:underline">
-              ER, DFD, CFD
-            </Link>
-          </li>
-          <li className="bg-slate-50 rounded-md m-2 p-2">
-            <Link to="/test-cases" className="hover:underline">
-              Test Cases - Requirements and Design
-            </Link>
-          </li>
-        </ul>
+      <div className="bg-[#424242] flex items-center mt-4">
+        <div className="w-full overflow-x-auto overflow-y-hidden scrollbar-hidden">
+          <ul className="flex whitespace-nowrap">
+            {NAV_ITEMS.map((item, index) => (
+              <li key={index} className="py-2">
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `text-white  p-2 ${
+                      isActive ? "bg-[#2563eb]" : "hover:bg-black"
+                    }`
+                  }
+                >
+                  {item.link}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
