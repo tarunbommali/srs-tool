@@ -30,8 +30,10 @@ const CocomoModel = () => {
       </header>
 
       <div className="container mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <div className='flex justify-evenly'>
         {/* Project Type Selection */}
-        <div className="mb-4">
+        <div className='flex flex-col w-[30vw]'>
+        <div className="mb-4 ">
           <label className="block text-gray-700 font-semibold mb-2">
             Select Project Type:
           </label>
@@ -47,7 +49,7 @@ const CocomoModel = () => {
         </div>
 
         {/* SLOC INPUT */}
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label className="block text-gray-700 font-semibold mb-2">
             Software Size (KLOC - Thousand Lines of Code):
           </label>
@@ -60,8 +62,11 @@ const CocomoModel = () => {
           />
         </div>
 
+        </div>
+
         {/* Constants Display */}
-        <h2 className="text-xl font-bold mb-4">COCOMO Constants for {projectType} Project</h2>
+        <div className='w-[50vw]'>
+        <h2 className="text-xl font-bold mb-4">Constants for {projectType} Project</h2>
         <table className="w-full mb-6 border border-collapse border-gray-300">
           <thead>
             <tr className="bg-gray-200">
@@ -87,11 +92,12 @@ const CocomoModel = () => {
             </tr>
           </tbody>
         </table>
+        </div></div>
 
         {/* CALCULATE BUTTON */}
         <button
           onClick={calculateEffort}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 flex text-end items-end justify-end hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Calculate Effort
         </button>

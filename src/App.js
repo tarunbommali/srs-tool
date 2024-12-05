@@ -18,7 +18,7 @@ const AppLayout = () => {
   return (
     <Provider store={appStore}>
     <div className="m-0">
-      <div className="m-2">
+      <div className="m-0">
         <Header />
         <div className="min-h-[80vh] pt-[80px]"> 
           <Outlet />
