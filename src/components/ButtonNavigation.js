@@ -32,6 +32,8 @@ export const ButtonNavigation = () => {
   const handleReset = () => {
     dispatch(reset());
     navigate("/");
+    window.scrollTo(0, 0); 
+
   };
 
   const handleNext = () => {

@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="flex flex-col text-center justify-center bg-[#162458] py-2 text-white">
-      <p>A Tool for Software Requrirement Specification, JNTU-GV 2024.</p>
+      <p>A Tool for Software Requrirement Specification,<a className="text-green-500 hover:text-orange-300 font-semibold" href="https://jntugvcev.edu.in/" target="__blank"> JNTU-GV </a>2024.</p>
       <p>
         
         Developed by 

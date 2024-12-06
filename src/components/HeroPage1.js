@@ -1,30 +1,56 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { CASE_STUDIES_TITLE } from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { setCaseStudy } from "../redux/caseStudySlice"; // Import Redux action
 
 const HeroPage1 = () => {
-  return (
-    <div className='flex flex-col text-black bg-[url("https://www.w3schools.com/images/background_in_space.webp")] justify-center text-center mb-8 h-[89vh]'>
-      
-      {/* <p className="home-title text-2xl text-white ">
-        Understand SRS documents, test cases, software configuration management,
-        and risk management documents.
-      </p>
-      <p className="home-title text-2xl text-white">
-        Learn methods for capturing, specifying, visualizing, and analyzing
-        software requirements.
-      </p> */}
+  const selectedCaseStudy = useSelector((state) => state.caseStudy.selectedCaseStudy);
+  const dispatch = useDispatch(); // Access Redux dispatch
 
-      <br/>
+  const handleSelectChange = (e) => {
+    const selectedCase = e.target.value;
+
+    // Dispatch selected case study to Redux
+    dispatch(setCaseStudy(selectedCase));
+  };
+
+  const handleReset = () => {
+    // Reset the selected case study in Redux
+    dispatch(setCaseStudy(""));
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center text-black bg-[url('https://www.w3schools.com/images/background_in_space.webp')] text-center h-[80vh]">
       <h1 className="text-4xl font-bold text-white">
         Welcome to the SRS Document Learning Portal
       </h1>
-      <p className="mt-4 text-lg text-[#f9eea0] ">
-        Start exploring different aspects of software engineering through
-        interactive modules.
+      <p className="mt-4 text-lg text-[#f9eea0]">
+        Start exploring different aspects of software engineering through interactive modules.
       </p>
-     <div className="flex justify-center items-center mt-4"> 
-      <NavLink to="/requirement-analysis" type="button" className="text-2xl bg-white rounded-lg py-2 my-2 mt-4 font-semibold px-4 text-[#162458]">EXPLORE IN-DEPTH</NavLink>
-     </div>
+      <div className="flex  items-center mt-4 ">
+      
+          <select
+            value={selectedCaseStudy}
+            onChange={handleSelectChange}
+            className="text-2xl py-2 my-2 rounded-l-full border-none outline-none px-4 flex-grow"
+          >
+            <option value="" disabled>
+              Choose a case study
+            </option>
+            {CASE_STUDIES_TITLE.map((caseStudy, index) => (
+              <option key={index} value={caseStudy}>
+                {caseStudy}
+              </option>
+            ))}
+          </select>
+          {selectedCaseStudy && <button
+            onClick={handleReset}
+            className="text-2xl py-2 my-2 bg-red-500 rounded-r-full border-none outline-none px-4 flex-grow"
+          >
+            Reset
+          </button>
+        }</div>
+      
     </div>
   );
 };
